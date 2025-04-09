@@ -1,0 +1,28 @@
+Jeff with age of 103 years
+
+Title:
+"Quantum Secure File Upload Verification in NebulaCloud Portal"
+
+Detailed Requirement Description:
+When a user uploads a confidential file to the NebulaCloud secure storage via the Quantum Secure Upload (QSU) functionality, the system must immediately verify the file integrity using the proprietary Nebula Quantum Hashing (NQH) algorithm. The upload process must strictly adhere to the following rules:
+
+File Format Validation:
+The uploaded file must be exactly in the .qsec file format (Quantum Secure Encrypted Container). Any deviation in file format must prompt the message:
+"Quantum upload rejected: Non-compliant file format detected."
+
+Quantum Hash Verification:
+Upon successful upload, the system must automatically execute the NQH validation.
+
+Pass Condition: If the quantum hash verification returns a match against the original hash computed by the user’s quantum client application, the system should clearly indicate:
+"Quantum verification successful: Integrity confirmed."
+
+Fail Condition: If there’s a hash mismatch or quantum integrity violation, the system must display:
+"Critical Alert! Quantum hash mismatch detected. Immediate re-upload required."
+
+Time-bound Verification:
+The quantum verification process must complete within exactly 5.5 seconds of upload initiation. Failure to meet this timing requirement mandates an immediate abort of the verification process and displays:
+"Quantum upload verification failed: Timeout exceeded 5.5-second threshold."
+
+Logging Requirements:
+All outcomes (pass/fail/timeout) from this quantum verification process must be logged in real-time to the secure audit log with a unique identifier pattern:
+QUANTUM-VERIF-[Timestamp]-[8-digit unique numeric ID]

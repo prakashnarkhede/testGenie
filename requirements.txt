@@ -1,0 +1,8 @@
+streamlit
+langchain
+transformers
+datasets
+torch
+sentencepiece
+python-docx
+langchain-community
